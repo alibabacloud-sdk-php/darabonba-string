@@ -152,9 +152,19 @@ class StringUtil
         return null === $value ? $default : $value;
     }
 
-    public static function equals($expect, $actual)
+    /**
+     * @var string $expect
+     * @var string $actual
+     * @var boolean $caseInsensitive
+     * 
+     * @return boolean
+     */
+    public static function equals($expect, $actual, $caseInsensitive = false)
     {
-        return false !== strcmp(self::_value($expect), self::_value($actual));
+        if ($caseInsensitive) {
+            return 0 === strcasecmp(self::_value($expect), self::_value($actual));
+        }
+        return 0 === strcmp(self::_value($expect), self::_value($actual));
     }
 
     public static function trim($str)
