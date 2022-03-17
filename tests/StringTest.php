@@ -99,4 +99,12 @@ class StringTest extends TestCase
             115, 116, 114, 105, 110, 103,
         ], StringUtil::toBytes('string'));
     }
+
+    public function testEquals()
+    {
+        $this->assertEquals(true, StringUtil::equals("abc", "abc"));
+        $this->assertEquals(false, StringUtil::equals("abc", "abc1"));
+        $this->assertEquals(false, StringUtil::equals("abc", "ABC"));
+        $this->assertEquals(true, StringUtil::equals("abc", "ABC", true));
+    }
 }
