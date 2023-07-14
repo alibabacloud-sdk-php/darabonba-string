@@ -103,6 +103,7 @@ class StringTest extends TestCase
     public function testEquals()
     {
         $this->assertTrue(StringUtil::equals('foo', 'foo'));
+        $this->assertTrue(StringUtil::equals(null, ''));
         $this->assertFalse(StringUtil::equals('foo', 'bar'));
     }
 }
